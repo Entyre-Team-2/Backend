@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class EntyreConfig(AppConfig):
+class PatientConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'entyre'
+    name = 'patient'
