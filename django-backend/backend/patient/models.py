@@ -33,6 +33,7 @@ class Results(models.Model):
     def __str__(self):
         return self.risk_score
 
+
 class Interactions(models.Model):
     ofResult = models.ForeignKey(Results, on_delete=models.CASCADE)
     drug1 = models.CharField(max_length = 20)

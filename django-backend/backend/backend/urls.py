@@ -29,5 +29,6 @@ router.register(r'drugs', views.DrugsView, 'drugs')
 urlpatterns = [
     path('admin/', admin.site.urls),
   #  path('api/', include(router.urls)),
-    path('api/patients', csrf_exempt(views.PatientView.as_view()))
+    path('api/patients', csrf_exempt(views.PatientView.as_view())),
+    path('api/diagnosis', csrf_exempt(views.DiagnosisView.as_view())),
 ]
