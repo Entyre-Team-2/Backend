@@ -17,13 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from patient import views
+from django.views.decorators.csrf import csrf_exempt
 
+'''
 router = routers.DefaultRouter()
 router.register(r'patients', views.PatientView, 'patient')
 router.register(r'diagnosis', views.DiagnosisView, 'diagnosis')
 router.register(r'drugs', views.DrugsView, 'drugs')
+'''
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+  #  path('api/', include(router.urls)),
+    path('api/patients', csrf_exempt(views.PatientView.as_view()))
 ]

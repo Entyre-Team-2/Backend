@@ -14,4 +14,4 @@ class DiagnosisSerializer(serializers.ModelSerializer):
 class DrugsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Drugs
-        fields = ('ofDiagnosis', 'drug_name', 'strength', 'dosage', 'form')
+        fields = ('ofDiagnosis', 'drug_name')

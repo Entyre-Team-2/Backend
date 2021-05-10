@@ -25,6 +25,17 @@ class Diagnosis(models.Model):
 class Drugs(models.Model):
     ofDiagnosis = models.ForeignKey(Diagnosis, on_delete=models.CASCADE)
     drug_name = models.CharField(max_length=15)
-    strength = models.CharField(max_length=15)
-    dosage = models.CharField(max_length=20)
-    form = models.CharField(max_length=15)
+
+class Results(models.Model):
+    ofPatient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    risk_score = models.CharField(max_length = 20)
+
+    def __str__(self):
+        return self.risk_score
+
+class Interactions(models.Model):
+    ofResult = models.ForeignKey(Results, on_delete=models.CASCADE)
+    drug1 = models.CharField(max_length = 20)
+    drug2 = models.CharField(max_length = 20)
+    risk_level = models.IntegerField()
+
