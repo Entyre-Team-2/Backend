@@ -10,13 +10,20 @@ class Patient(models.Model):
     age = models.IntegerField()
     weight = models.IntegerField()
     insurance_comp = models.CharField(max_length=100)
-    insurance_num = models.IntegerField()
+    insurance_num = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.insurance_num
 
 class Diagnosis(models.Model):
     ofPatient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     diag_name = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.diag_name
+
 class Drugs(models.Model):
+    ofPatient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     ofDiagnosis = models.ForeignKey(Diagnosis, on_delete=models.CASCADE)
     drug_name = models.CharField(max_length=15)
     strength = models.CharField(max_length=15)
