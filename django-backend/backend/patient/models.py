@@ -23,7 +23,6 @@ class Diagnosis(models.Model):
         return self.diag_name
 
 class Drugs(models.Model):
-    ofPatient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     ofDiagnosis = models.ForeignKey(Diagnosis, on_delete=models.CASCADE)
     drug_name = models.CharField(max_length=15)
     strength = models.CharField(max_length=15)
